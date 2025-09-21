@@ -1,0 +1,134 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Шапка */
+#top-banner {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.main-heading {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.sub-heading {
+    font-size: 1.2em;
+    font-weight: lighter;
+}
+
+/* Секции */
+.section-heading {
+    font-size: 1.5em;
+    color: #444;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.about-section,
+.hobbies,
+.favorites,
+.photo-section,
+.button-section,
+.schedule,
+.mood,
+.contact {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Списки */
+.list-styled {
+    padding-left: 20px;
+}
+
+.fav-sites li {
+    margin: 5px 0;
+}
+
+.fav-sites a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.fav-sites a:hover {
+    text-decoration: underline;
+}
+
+/* Фото */
+.profile-img {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #4CAF50;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Кнопка */
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+/* Таблица */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.schedule-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Форма */
+.form-input {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.submit-btn {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #45a049;
+}
