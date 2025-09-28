@@ -132,3 +132,126 @@ body {
 .submit-btn:hover {
     background: #45a049;
 }
+
+#top-banner {
+    display: flex;
+    justify-content: space-between; /* заголовок слева, курс справа */
+    align-items: center;
+    flex-wrap: wrap; /* чтобы красиво сжималось на мобилках */
+    text-align: left; /* убираем центрирование */
+}
+
+/* Task 1: Ряд карточек */
+.card-row {
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card-body {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ========================= */
+/* Часть 2. GRID             */
+/* ========================= */
+
+/* Task 2: Макет страницы */
+.page-grid {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    margin: 20px;
+}
+.g-header { grid-area: header; background: #4CAF50; color: white; padding: 15px; }
+.g-sidebar { grid-area: sidebar; background: #f0f0f0; padding: 15px; }
+.g-main    { grid-area: main; background: white; padding: 15px; }
+.g-footer  { grid-area: footer; background: #333; color: white; padding: 15px; text-align: center; }
+
+/* Task 3: Галерея */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* ========================= */
+/* Часть 3. Portfolio         */
+/* ========================= */
+
+.portfolio {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "projects sidebar"
+        "footer footer";
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin: 20px;
+}
+.port-header { grid-area: header; }
+.port-projects { grid-area: projects; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.port-sidebar { grid-area: sidebar; background: #fafafa; padding: 15px; }
+.port-footer  { grid-area: footer; text-align: center; background: #333; color: white; padding: 15px; }
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.project-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.project-card h3 { margin: 10px; }
+.project-card p { margin: 10px; flex: 1; }
+.project-card button {
+    margin: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.project-card button:hover { background: #45a049; }
