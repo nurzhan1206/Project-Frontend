@@ -11,83 +11,92 @@
         <h2 class="sub-heading">Course: Web Technologies</h2>
     </header>
 
-    <section class="about-section">
-        <h3 class="section-heading">About Me</h3>
-        <p class="paragraph-text">Hello everyone! My name is Nurzhan, I'm student at AITU.</p>
+    <!-- ===== Part 1. Flexbox ===== -->
+    <section class="card-row">
+        <article class="card">
+            <img src="https://picsum.photos/seed/a/400/200" alt="Card 1">
+            <div class="card-body">
+                <h3>Card 1</h3>
+                <p>Example description text.</p>
+                <button>Read more</button>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://picsum.photos/seed/b/400/200" alt="Card 2">
+            <div class="card-body">
+                <h3>Card 2</h3>
+                <p>Example description text.</p>
+                <button>Read more</button>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://picsum.photos/seed/c/400/200" alt="Card 3">
+            <div class="card-body">
+                <h3>Card 3</h3>
+                <p>Example description text.</p>
+                <button>Read more</button>
+            </div>
+        </article>
     </section>
 
-    <section class="hobbies">
-        <h3 class="section-heading">My Hobbies</h3>
-        <ol class="list-styled">
-            <li>Playing CS2</li>
-            <li>Listening to music</li>
-            <li>Watching football</li>
-        </ol>
+    <!-- ===== Part 2. Grid ===== -->
+    <section class="page-grid">
+        <div class="g-header">Header (Grid)</div>
+        <aside class="g-sidebar">Sidebar (links/menu)</aside>
+        <main class="g-main">
+            <h3>Main content</h3>
+            <p>Here is the text for the main area.</p>
+        </main>
+        <footer class="g-footer">Footer © 2025</footer>
     </section>
 
-    <section class="favorites">
-        <h3 class="section-heading">My Favorite Websites</h3>
-        <ul class="fav-sites">
-            <li><a href="https://www.faceit.com" target="_blank">Faceit</a></li>
-            <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
-            <li><a href="https://open.spotify.com" target="_blank">Spotify</a></li>
-        </ul>
+    <section class="gallery">
+        <h3>Image Gallery</h3>
+        <div class="gallery-grid">
+            <img src="https://picsum.photos/id/101/400/300" alt="">
+            <img src="https://picsum.photos/id/102/400/300" alt="">
+            <img src="https://picsum.photos/id/103/400/300" alt="">
+            <img src="https://picsum.photos/id/104/400/300" alt="">
+            <img src="https://picsum.photos/id/105/400/300" alt="">
+            <img src="https://picsum.photos/id/106/400/300" alt="">
+            <img src="https://picsum.photos/id/107/400/300" alt="">
+            <img src="https://picsum.photos/id/108/400/300" alt="">
+            <img src="https://picsum.photos/id/109/400/300" alt="">
+        </div>
     </section>
 
-    <section class="photo-section">
-        <h3 class="section-heading">My Photo</h3>
-        <img src="indexPhoto.jpg" alt="My Photo" class="profile-img">
-    </section>
+    <!-- ===== Part 3. Portfolio ===== -->
+    <section class="portfolio">
+        <header class="port-header">
+            <h2>My Portfolio</h2>
+        </header>
 
-    <section class="button-section">
-        <button class="btn-primary">Click Me</button>
-    </section>
+        <div class="port-projects">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Description of project 1.</p>
+                <button>Details</button>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Description of project 2.</p>
+                <button>Details</button>
+            </div>
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>Description of project 3.</p>
+                <button>Details</button>
+            </div>
+        </div>
 
-    <section class="schedule">
-        <h3 class="section-heading">My Weekly Schedule</h3>
-        <table class="schedule-table">
-            <tr>
-                <th>Subject</th>
-                <th>Day</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Web Technologies</td>
-                <td>Monday</td>
-                <td>19:00</td>
-            </tr>
-            <tr>
-                <td>DAA</td>
-                <td>Wednesday</td>
-                <td>14:00</td>
-            </tr>
-            <tr>
-                <td>Russian Language</td>
-                <td>Friday</td>
-                <td>09:00</td>
-            </tr>
-        </table>
-    </section>
+        <aside class="port-sidebar">
+            <h3>About Me</h3>
+            <p>Some text about me and my skills.</p>
+        </aside>
 
-    <section class="mood">
-        <h3 class="section-heading">My Mood Today</h3>
-        <p class="paragraph-text">I feel happy 😊, motivated 💪, and excited 🚀 about learning HTML!</p>
-    </section>
-
-    <section class="contact">
-        <h3 class="section-heading">Contact Me</h3>
-        <form id="user-form">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" class="form-input"><br><br>
-
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" class="form-input"><br><br>
-
-            <label for="color">Favorite Color:</label><br>
-            <input type="color" id="color" class="form-input"><br><br>
-
-            <input type="submit" value="Submit" class="submit-btn">
-        </form>
+        <footer class="port-footer">
+            <p>Footer © Serik Nurzhan</p>
+        </footer>
     </section>
 </body>
 </html>
