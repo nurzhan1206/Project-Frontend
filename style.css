@@ -1,132 +1,109 @@
-/* Общий стиль страницы */
+/* ===== Assignment 6 — CSS Styles ===== */
+
 body {
-  background-color: #f5f7fa;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 30px;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  background: #f6f7fb;
+  color: #111;
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 16px;
 }
 
-/* Главный заголовок */
 h1 {
-  text-align: center;
-  color: #0d6efd;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 24px;
+  margin-bottom: 8px;
 }
 
-/* Подзаголовки (Part 1, 2, 3) */
-h2 {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  color: #0a58ca;
-  border-left: 6px solid #0d6efd;
-  padding-left: 10px;
+section {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(10, 20, 40, 0.06);
+  padding: 16px;
+  margin: 12px 0;
 }
 
-/* Заголовки заданий */
-h4 {
-  color: #212529;
-  margin-top: 30px;
-  font-weight: 600;
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-/* Контейнер формы */
-form {
-  background-color: white;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-/* Текстовые поля и textarea */
+button:hover {
+  background: #eaeaea;
+}
+
 input[type="text"],
 input[type="email"],
-input[type="password"],
-textarea,
-select {
-  width: 100%;
-  padding: 10px 15px;
-  margin-top: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ced4da;
+input[type="password"] {
+  padding: 8px;
   border-radius: 8px;
-  font-size: 15px;
-  transition: all 0.2s ease;
+  border: 1px solid #ccc;
 }
 
-/* Эффект при фокусе на поле */
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #0d6efd;
-  box-shadow: 0 0 5px rgba(13, 110, 253, 0.4);
-  outline: none;
+ul {
+  padding-left: 20px;
 }
 
-/* Кнопки */
-button,
-.btn {
-  border-radius: 10px !important;
-  padding: 10px 25px;
-  font-weight: 600;
-  transition: 0.3s ease;
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
-/* Цвета кнопок */
-.btn-primary {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-}
-.btn-primary:hover {
-  background-color: #084298;
-  border-color: #084298;
+.completed {
+  text-decoration: line-through;
+  color: #888;
 }
 
-.btn-success {
-  background-color: #198754;
-}
-.btn-success:hover {
-  background-color: #0f5132;
-}
-
-/* Радио и чекбоксы */
-.form-check-label {
-  margin-left: 5px;
-  font-weight: 500;
+.box {
+  width: 150px;
+  height: 80px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #bbb;
 }
 
-/* Подсказки (helper text) */
-.form-text {
-  color: #6c757d;
-  font-size: 14px;
+.controls {
+  margin-top: 10px;
 }
 
-/* Сообщения валидации */
-.invalid-feedback {
-  color: #dc3545;
-  font-size: 14px;
-}
-.valid-feedback {
-  color: #198754;
-  font-size: 14px;
+.error {
+  color: #b00020;
+  margin-top: 6px;
 }
 
-/* Отступы между разделами */
-.container {
-  max-width: 900px;
+small.hint {
+  color: #666;
 }
 
-/* Мобильная адаптация */
-@media (max-width: 576px) {
-  body {
-    padding: 15px;
-  }
-  h1 {
-    font-size: 24px;
-  }
-  form {
-    padding: 15px;
-  }
+#styleBox {
+  transition: background 0.3s, font-size 0.3s;
+}
+
+#hoverBox {
+  transition: background 0.3s;
+}
+
+#tasksUl button {
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+#tasksUl button:hover {
+  background: #dcdcdc;
 }
