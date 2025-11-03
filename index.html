@@ -1,251 +1,253 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Assignment 6 — JavaScript Basics (DOM & Events)</title>
-  <style>
-    /* Basic styling for the assignment demo */
-    body{font-family: Inter, system-ui, Arial; max-width:1000px;margin:24px auto;padding:16px;background:#f6f7fb;color:#111}
-    h1{font-size:24px;margin-bottom:8px}
-    section{background:#fff;border-radius:10px;box-shadow:0 6px 18px rgba(10,20,40,0.06);padding:16px;margin:12px 0}
-    .row{display:flex;gap:12px;flex-wrap:wrap}
-    button{padding:8px 12px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer}
-    input[type=text], input[type=email], input[type=password]{padding:8px;border-radius:8px;border:1px solid #ccc}
-    ul{padding-left:20px}
-    .todo-item{display:flex;align-items:center;gap:8px}
-    .completed{text-decoration:line-through;color:#888}
-    .box{width:150px;height:80px;border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px dashed #bbb}
-    .controls{margin-top:10px}
-    .error{color:#b00020;margin-top:6px}
-    small.hint{color:#666}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 7 Solution (jQuery)</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h3 {
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+        button {
+            margin: 5px;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            margin-bottom: 10px;
+        }
+        #task4-header {
+            background: #dcdcdc;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+        #task4-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin-top: 10px;
+        }
+        #box8 { background-color: blue; }
+        #box9 { background-color: green; }
+        #box10 { background-color: orange; }
+        .accordion-header {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 12px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            border-top: 1px solid #ccc;
+        }
+        .accordion-header:hover {
+            background-color: #ddd;
+        }
+        .accordion-content {
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
 </head>
 <body>
-  <h1>Assignment 6 — JavaScript Basics (DOM & Events)</h1>
-  <p>Student: ____________ &nbsp; Group: ____________</p>
 
-  <!-- Part 1: Intro -->
-  <section id="part1">
-    <h2>Part 1 — Introduction to JavaScript</h2>
-    <p><strong>Task 0 — First Script</strong></p>
-    <p class="hint">(script logs name & group to console and shows alert)</p>
+    <h3>Task 1. Selectors & CSS</h3>
+    <p id="task1-id">This is an element with an ID.</p>
+    <div class="task1-class">This is an element with a class.</div>
+    <span class="task1-class">This is another element with a class.</span>
+    <article>This is an 'article' tag.</article>
 
-    <p><strong>Task 1 — Variables & Operators</strong></p>
-    <pre id="varsOutput"></pre>
-  </section>
+    <h3>Task 2. Visibility Methods</h3>
+    <p id="task2-p">This paragraph will be hidden and shown.</p>
+    <button id="btn-hide">Hide</button>
+    <button id="btn-show">Show</button>
+    <button id="btn-toggle">Toggle</button>
 
-  <!-- Part 2: DOM Manipulation -->
-  <section id="part2">
-    <h2>Part 2 — DOM Manipulation</h2>
+    <h3>Task 3. Fade Methods</h3>
+    <img id="task3-img" src="https://via.placeholder.com/200" alt="Placeholder Image" style="display: block; margin-top: 10px;">
+    <button id="btn-fade-out">Fade Out</button>
+    <button id="btn-fade-in">Fade In</button>
+    <button id="btn-fade-toggle">Fade Toggle</button>
 
-    <!-- Task 2 Changing content -->
-    <div>
-      <p id="para">Это начальный текст параграфа.</p>
-      <button id="changeTextBtn">Change paragraph text</button>
+    <h3>Task 4. Slide Methods</h3>
+    <div id="task4-header">Click to expand/collapse (Slide Toggle)</div>
+    <div id="task4-content">
+        <p>This is the content of the collapsible panel. It appears and disappears using slideToggle().</p>
     </div>
 
-    <!-- Task 3 Changing styles -->
-    <div style="margin-top:12px">
-      <div id="styleBox" class="box">Стиль блока</div>
-      <div class="controls">
-        <button id="bgColorBtn">Change background</button>
-        <button id="fontSizeBtn">Increase font size</button>
-        <button id="resetStyleBtn">Reset style</button>
-      </div>
+    <h3>Task 5. Add & Remove Elements</h3>
+    <ul id="task5-list">
+        <li>First Item</li>
+    </ul>
+    <button id="btn-append">Append (Add to end)</button>
+    <button id="btn-prepend">Prepend (Add to start)</button>
+    <button id="btn-remove">Remove Last</button>
+
+    <h3>Task 6. Modifying Attributes</h3>
+    <img id="task6-img" src="https://via.placeholder.com/150?text=Image+1" alt="Image 1" style="display: block;">
+    <button id="btn-change-img">Change Image 'src'</button>
+    <br><br>
+    <a id="task6-link" href="https://astanait.edu.kz">Astana IT University</a>
+    <button id="btn-change-link">Change Link 'href'</button>
+
+    <h3>Task 7. Form Interaction</h3>
+    <form id="task7-form">
+        Name: <input type="text" id="input-name"><br>
+        Email: <input type="text" id="input-email">
+    </form>
+    <h4>Live Output:</h4>
+    <p>Name: <span id="output-name"></span></p>
+    <p>Email: <span id="output-email"></span></p>
+
+    <h3>Task 8. Basic Animation</h3>
+    <button id="btn-animate-8">Animate (Size & Position)</button>
+    <div id="box8" class="box"></div>
+
+    <h3>Task 9. Sequential Animations</h3>
+    <button id="btn-animate-9">Animate (Sequentially)</button>
+    <div id="box9" class="box"></div>
+
+    <h3>Task 10. Combined Animation</h3>
+    <button id="btn-animate-10">Animate (Combo)</button>
+    <div id="box10" class="box"></div>
+
+    <h3>Task 11. Interactive jQuery Project (Accordion)</h3>
+    <div class="accordion">
+        <div class="accordion-header">Section 1</div>
+        <div class="accordion-content">
+            <p>Content for the first section. When another section is clicked, this one will collapse.</p>
+        </div>
+        
+        <div class="accordion-header">Section 2</div>
+        <div class="accordion-content">
+            <p>Content for the second section. This uses slideToggle() for the animation.</p>
+        </div>
+        
+        <div class="accordion-header">Section 3</div>
+        <div class="accordion-content">
+            <p>Content for the third section. Simple and effective.</p>
+        </div>
     </div>
 
-    <!-- Task 4 Create/Remove elements -->
-    <div style="margin-top:12px">
-      <ul id="itemList">
-        <li>Item 1</li>
-        <li>Item 2</li>
-      </ul>
-      <div class="controls">
-        <button id="addItemBtn">Add Item</button>
-        <button id="removeItemBtn">Remove Item</button>
-      </div>
-    </div>
-  </section>
+    <script>
+        $(document).ready(function() {
+            
+            console.log("jQuery is ready!"); 
 
-  <!-- Part 3: Events -->
-  <section id="part3">
-    <h2>Part 3 — Events</h2>
+            $('#task1-id').css('color', 'blue'); 
+            $('.task1-class').css('font-weight', 'bold'); 
+            $('article').text('Content of <article> changed via .text()'); 
+            $('#task1-id').html('ID selector <em>changed</em> via .html()'); 
 
-    <!-- Task 5 Mouse events -->
-    <div>
-      <p><strong>Task 5 — Mouse Events</strong></p>
-      <div id="hoverBox" class="box">Наведи меня</div>
-    </div>
+            $('#btn-hide').click(function() {
+                $('#task2-p').hide(); 
+            });
+            $('#btn-show').click(function() {
+                $('#task2-p').show(); 
+            });
+            $('#btn-toggle').click(function() {
+                $('#task2-p').toggle(); 
+            });
 
-    <!-- Task 6 Keyboard events -->
-    <div style="margin-top:12px">
-      <p><strong>Task 6 — Keyboard Events</strong></p>
-      <input id="liveInput" type="text" placeholder="Печатай здесь...">
-      <div>Current value: <span id="liveValue"></span></div>
-    </div>
+            $('#btn-fade-out').click(function() {
+                $('#task3-img').fadeOut(); 
+            });
+            $('#btn-fade-in').click(function() {
+                $('#task3-img').fadeIn(); 
+            });
+            $('#btn-fade-toggle').click(function() {
+                $('#task3-img').fadeToggle(); 
+            });
 
-    <!-- Task 7 Form validation (optional) -->
-    <div style="margin-top:12px">
-      <p><strong>Task 7 — Simple Form Validation</strong></p>
-      <form id="sampleForm" novalidate>
-        <div class="row"><input id="nameField" type="text" placeholder="Name"></div>
-        <div class="row" style="margin-top:8px"><input id="emailField" type="email" placeholder="Email"></div>
-        <div class="row" style="margin-top:8px"><input id="pwdField" type="password" placeholder="Password"></div>
-        <div class="controls"><button type="submit">Submit</button></div>
-        <div id="formError" class="error" aria-live="polite"></div>
-      </form>
-    </div>
-  </section>
+            $('#task4-header').click(function() {
+                $('#task4-content').slideToggle(); 
+            });
 
-  <!-- Part 4: To-Do App -->
-  <section id="part4">
-    <h2>Part 4 — Mini Project: To-Do List</h2>
-    <div class="row">
-      <input id="taskInput" type="text" placeholder="New task">
-      <button id="addTaskBtn">Add Task</button>
-    </div>
-    <ul id="tasksUl" style="margin-top:12px"></ul>
-    <p class="hint">Tasks are stored in a temporary array while the page is open.</p>
-  </section>
+            let itemCount = 1;
+            $('#btn-append').click(function() {
+                $('#task5-list').append('<li>Appended Item ' + itemCount + '</li>'); 
+                itemCount++;
+            });
+            $('#btn-prepend').click(function() {
+                $('#task5-list').prepend('<li>Prepended Item ' + itemCount + '</li>'); 
+                itemCount++;
+            });
+            $('#btn-remove').click(function() {
+                $('#task5-list li:last-child').remove(); 
+            });
 
-  <script>
-    // ====== Part 1: First script & variables ======
-    console.log('Student name: ____________');
-    console.log('Group: ____________');
-    alert('Hello, JavaScript World!');
+            $('#btn-change-img').click(function() {
+                $('#task6-img').attr('src', 'https://via.placeholder.com/150?text=Image+2'); 
+            });
+            $('#btn-change-link').click(function() {
+                $('#task6-link')
+                    .attr('href', 'https://jquery.com') 
+                    .text('jQuery Official Website');
+            });
 
-    // Variables & Operators (Task 1)
-    const s = 'Hello';
-    const n = 42;
-    const b = true;
-    const sum = n + 8; // arithmetic
-    const concat = s + ' from group ' + '__________';
+            $('#input-name').on('keyup', function() {
+                let name = $(this).val(); 
+                $('#output-name').text(name); 
+            });
+            $('#input-email').on('keyup', function() {
+                let email = $(this).val(); 
+                $('#output-email').text(email); 
+            });
 
-    document.getElementById('varsOutput').textContent =
-      `string: ${s}\nnumber: ${n}\nboolean: ${b}\nsum: ${sum}\nconcatenation: ${concat}`;
+            $('#btn-animate-8').click(function() {
+                $('#box8').animate({
+                    width: '200px',
+                    height: '200px',
+                    left: '100px'
+                }, 1000); 
+            });
 
-    // ====== Part 2: DOM Manipulation ======
-    // Task 2 Change content
-    const para = document.getElementById('para');
-    document.getElementById('changeTextBtn').addEventListener('click', () => {
-      para.textContent = 'Текст был изменён!';
-    });
+            $('#btn-animate-9').click(function() {
+                let box = $('#box9');
+                box.animate({ left: '200px' }); 
+                box.animate({ top: '100px' }); 
+                box.animate({ width: '50px', height: '50px' }); 
+                box.animate({ top: '0px', left: '0px', width: '100px', height: '100px' }); 
+            });
 
-    // Task 3 Change styles
-    const styleBox = document.getElementById('styleBox');
-    const bgColorBtn = document.getElementById('bgColorBtn');
-    const fontSizeBtn = document.getElementById('fontSizeBtn');
-    const resetStyleBtn = document.getElementById('resetStyleBtn');
+            $('#btn-animate-10').click(function() {
+                $('#box10').animate({
+                    width: '150px',
+                    height: '150px',
+                    left: '150px',
+                    opacity: 0.5
+                }, 1500); 
+            });
+            
+            $('.accordion-header').click(function() {
+                let content = $(this).next('.accordion-content');
+                $('.accordion-content').not(content).slideUp(); 
+                content.slideToggle(); 
+            });
 
-    let currentBg = '';
-    let currentSize = 14;
-    bgColorBtn.addEventListener('click', () => {
-      // cycle through a few colors
-      const colors = ['#ffefc2', '#c2f0ff', '#d7ffd7', '#fdd2f2'];
-      const next = colors[Math.floor(Math.random() * colors.length)];
-      styleBox.style.background = next;
-      currentBg = next;
-    });
-    fontSizeBtn.addEventListener('click', () => {
-      currentSize += 2;
-      styleBox.style.fontSize = currentSize + 'px';
-    });
-    resetStyleBtn.addEventListener('click', () => {
-      styleBox.style.background = '';
-      currentSize = 14;
-      styleBox.style.fontSize = '';
-    });
-
-    // Task 4 Creating & Removing Elements
-    const itemList = document.getElementById('itemList');
-    document.getElementById('addItemBtn').addEventListener('click', () => {
-      const li = document.createElement('li');
-      li.textContent = 'New Item ' + (itemList.children.length + 1);
-      itemList.appendChild(li);
-    });
-    document.getElementById('removeItemBtn').addEventListener('click', () => {
-      if (itemList.lastElementChild) itemList.removeChild(itemList.lastElementChild);
-    });
-
-    // ====== Part 3: Events ======
-    // Task 5 Mouse events
-    const hoverBox = document.getElementById('hoverBox');
-    const originalBg = hoverBox.style.background || '';
-    hoverBox.addEventListener('mouseover', () => hoverBox.style.background = '#ffe5b4');
-    hoverBox.addEventListener('mouseout', () => hoverBox.style.background = originalBg);
-
-    // Task 6 Keyboard events
-    const liveInput = document.getElementById('liveInput');
-    const liveValue = document.getElementById('liveValue');
-    liveInput.addEventListener('keyup', (e) => {
-      liveValue.textContent = e.target.value;
-    });
-
-    // Task 7 Form validation (optional)
-    const sampleForm = document.getElementById('sampleForm');
-    const formError = document.getElementById('formError');
-    sampleForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      formError.textContent = '';
-      const name = document.getElementById('nameField').value.trim();
-      const email = document.getElementById('emailField').value.trim();
-      const pwd = document.getElementById('pwdField').value.trim();
-      if (!name || !email || !pwd) {
-        formError.textContent = 'Please fill in all fields.';
-        return;
-      }
-      // simple success behavior
-      alert('Form submitted — (simulated)');
-      sampleForm.reset();
-    });
-
-    // ====== Part 4: To-Do App ======
-    const tasks = []; // temporary in-memory storage
-    const tasksUl = document.getElementById('tasksUl');
-    const taskInput = document.getElementById('taskInput');
-    const addTaskBtn = document.getElementById('addTaskBtn');
-
-    function renderTasks(){
-      tasksUl.innerHTML = '';
-      tasks.forEach((t, idx) => {
-        const li = document.createElement('li');
-        li.className = 'todo-item';
-        const span = document.createElement('span');
-        span.textContent = t.text;
-        if (t.completed) span.classList.add('completed');
-        span.style.flex = '1';
-        span.addEventListener('click', () => {
-          tasks[idx].completed = !tasks[idx].completed;
-          renderTasks();
         });
-        const del = document.createElement('button');
-        del.textContent = 'Delete';
-        del.addEventListener('click', () => {
-          tasks.splice(idx,1);
-          renderTasks();
-        });
-        li.appendChild(span);
-        li.appendChild(del);
-        tasksUl.appendChild(li);
-      });
-    }
+    </script>
 
-    addTaskBtn.addEventListener('click', () => {
-      const val = taskInput.value.trim();
-      if (!val) return;
-      tasks.push({text: val, completed:false});
-      taskInput.value = '';
-      renderTasks();
-    });
-
-    // allow Enter to add task
-    taskInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') addTaskBtn.click();
-    });
-
-    // initial render
-    renderTasks();
-  </script>
 </body>
 </html>
